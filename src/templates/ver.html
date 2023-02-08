@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block title%}Emergencia{% endblock %}
+
+
+{% block customCSS %}
+
+
+{% endblock %}
+
+
+{% block body %}
+<h1 class="text-center">Bienvenido, {{current_user.fullname}} </h1>
+<br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Motivo</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for entrantes in ent %}
+        <tr>
+            <td>{{ entrantes.id }}</th>
+            <td>{{ entrantes.nombre }}</td>
+            <td>{{ entrantes.apellido }}</td>
+            <td>{{ entrantes.motivo }}</td>
+            <td>{{ entrantes.fecha }}</td>
+            <td>{{ entrantes.hora }}</td>
+
+            <td><a  href='actualizar/{{ entrantes.id }}'><i class="fa-solid fa-pen-to-square" style="color:purple;"></i></a></td>
+            <td><a href='eliminar/{{ entrantes.id }}'><i class="fa-solid fa-trash" style="color:red;"></i></a></td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  
+<br><br><br>
+  <div class="d-flex justify-content-center">
+    <a href='/add' class="btn btn-primary ">Añadir Ingresado</a>
+    
+  </div>
+<br>
+  <a style="margin: 0 645px;" class=" btn btn-secondary " href="{{url_for('logout') }}">Logout</a>
+  
+  <script src="https://kit.fontawesome.com/8399259c38.js" crossorigin="anonymous"></script>
+
+{% endblock %}

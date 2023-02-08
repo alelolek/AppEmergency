@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title%}Añadir{% endblock %}
+
+
+{% block customCSS %}
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<h2 style="padding: 10px 350px;">{{ "Actualizar " if ent.id > 0 else "Añadir" }} ingresado por emergencia</h2>
+<form action="" method = "POST" style="margin : 40px 200px ;border:4px solid blue;padding: 40px ;">
+    <!-- <div class="form-group row">
+      <label for="id">Id</label>
+      <input type="text" class="form-control" name="id" id="id" value="{{ ent.id }}">
+    </div><br> -->
+    <div class="form-group row">
+        <label for="nombre">Nombres</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" value="{{ ent.nombre }}">
+    </div><br>
+    <div class="form-group row">
+        <label for="apellido">Apellidos</label>
+        <input type="text" class="form-control" name="apellido" id="apellido" value="{{ ent.apellido }}">
+    </div><br>
+    <div class="form-group row">
+        <label for="motivo">Motivo de Ingreso</label>
+        <input type="text" class="form-control" name="motivo" id="motivo" value="{{ ent.motivo }}">
+    </div><br>
+    <div class="form-group row">
+        <label for="fecha">Fecha</label>
+        <input type="date" class="form-control" name="fecha" id="fecha" value="{{ ent.fecha }}">
+    </div><br>
+    <div class="form-group row">
+        <label for="hora">Hora</label>
+        <input type="time" class="form-control" name="hora" id="hora" value="{{ ent.hora }}">
+    </div><br><br>
+    <button type="btnAdd" class="btn btn-primary">Submit</button>
+    <a href="/ver" class="btn btn-primary">Cancel</a>
+  </form>
+{% endblock %}
